@@ -1,0 +1,18 @@
+[
+{
+	"id" 	   : "SublimeSync",
+	"caption"  : "SublimeSync",
+	"children" :
+	[
+		{
+			"caption" : "Upload Selection",
+			"command" : "selections"
+		},
+		{
+			"caption" : "Upload File",
+			"command" : "selections"
+		}
+	]
+}
+
+]
