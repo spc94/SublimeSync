@@ -25,7 +25,13 @@ class SelectionsCommand(sublime_plugin.TextCommand):
 			point = self.view.text_point(0,0)
 			region = self.view.full_line(point)
 			title = self.view.substr(region)
+			title = title.replace("\\","\\\\")
 			title = title.replace("\n","")
+			title = title.replace("\t","\\t")
+			title = title.replace("\'","\'\\\'\'")
+			title = title.replace("\"","\\\"")
+			# Titles can't contain /
+			title = title.replace("/","")
 		else:
 			title = view.file_name().split('/')[-1]
 
@@ -35,9 +41,12 @@ class SelectionsCommand(sublime_plugin.TextCommand):
 		print( title )
 		textToPaste = textToPaste.replace("\n","\\n")
 		textToPaste = textToPaste.replace("\t","\\t")
-		textToPaste = textToPaste.replace("\"","\\\"")
+		# The order is important for parsing purposes
 		textToPaste = textToPaste.replace("\\","\\\\")
+		textToPaste = textToPaste.replace("\"","\\\"")
+		# ---------------------------------------------
 		textToPaste = textToPaste.replace("\'","\'\\\'\'")
+		#textToPaste = textToPaste.replace("\"","\"\\\"\"")
 		#textToPaste = textToPaste.replace("\'","\u0027")
 		print( textToPaste )
 
