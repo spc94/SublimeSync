@@ -34,6 +34,7 @@ class SelectionsCommand(sublime_plugin.TextCommand):
 			title = title.replace("/","")
 		else:
 			title = view.file_name().split('/')[-1]
+			title = "SLCT_" + title
 
 		for i,region in enumerate(view.sel()):
 			textToPaste += view.substr(region)
@@ -95,6 +96,7 @@ class FileCommand(sublime_plugin.TextCommand):
 			title = title.replace("/","")
 		else:
 			title = view.file_name().split('/')[-1]
+			title = "UPLD_" + title
 
 		#for i,region in enumerate(view.sublime.Selection.add(0,view.size())):
 		#	textToPaste += view.substr(region)
