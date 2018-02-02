@@ -53,7 +53,7 @@ class SelectionsCommand(sublime_plugin.TextCommand):
 
 		# Send the paste to the configured user and obtains url from JSON 
 		# object obtained from the result of the CURL
-		command = "curl -X POST -d '{\"public\":true,\"files\":{\""+ title+"\":{\"content\":\""+textToPaste+"\"}}}' -u " + login + " https://api.github.com/gists"
+		command = "curl -X POST -d '{\"public\":false,\"files\":{\""+ title+"\":{\"content\":\""+textToPaste+"\"}}}' -u " + login + " https://api.github.com/gists"
 		#command = command.replace("\\","")
 		print ("COMANDO: " + command)
 		result = os.popen(command).read()
@@ -126,7 +126,7 @@ class FileCommand(sublime_plugin.TextCommand):
 
 		# Send the paste to the configured user and obtains url from JSON 
 		# object obtained from the result of the CURL
-		command = "curl -X POST -d '{\"public\":true,\"files\":{\""+ title+"\":{\"content\":\""+textToPaste+"\"}}}' -u " + login + " https://api.github.com/gists"
+		command = "curl -X POST -d '{\"public\":false,\"files\":{\""+ title+"\":{\"content\":\""+textToPaste+"\"}}}' -u " + login + " https://api.github.com/gists"
 		#command = command.replace("\\","")
 		print ("COMANDO: " + command)
 		result = os.popen(command).read()
